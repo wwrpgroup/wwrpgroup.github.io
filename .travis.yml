@@ -2,19 +2,15 @@ language: node_js
 node_js:
   - '5'
   - '4'
-
-# (by default, Travis will run "yarn test" script when the language is node_js)
-
-# deploy is run after "yarn test"
 deploy:
-  # keep the build we just made with "yarn test" (dist/)
   skip_cleanup: true
-
-  # define the script to use for deployment
   provider: script
   script: ./scripts/deploy.sh
-
-  # only run on one version of node (v5 here)
-  on:
-    branch: dev # ⚠️ OR SRC IF YOU USE USERNAME.GITHUB.IO
+  'on':
+    branch: dev
     node: '5'
+env:
+  global:
+    - secure: >-
+        NE4GqUdnFYwdcRupbAVy98fQH+DD36F8FGhYWPIAUj8URBwreHVFoVG3A6taLsrkHvfK5MzTtrbSUuIOzwmM0Cv1LMVqDh6iEg30PVDWy0V+tM2ZCb4LF4QF9F5EabNkdrKAHUPccGzhgo0j6GgSmN3Xjz5N7wgqqXyE442NbtkJ/1amHpCV4wGVkvfkOLfGL3taX5c7g771m/4T0XcdkX/I9pvrHnEpWGFxn6pgQ88FGePqK6b7GCmbPmVBhmTR3NObOAwPY0+/XCDeZoyC+BGXOclv3m0Mfzqtx+Kem4vIpCLGYBZPhxZQoUakr+tPR3gcyM41CkTYhoBG+hMmBWifUzwEClgvbfQeOoBLd9O4rdqPAJiGmLzdcb6+oBPXmndhk/XQkBz7ao3u/Sg0Y2oKgR3VG6RBQ0DPIubKvC/mDFRPB7lG87SMRJMhSGglv8t7MXJ4+ngziWqInJbspGIkRAFJkAWDMEA6DkQFiJB6kuAj8E2zUYoANFKS6dTmIwCa149F/U3pUOu6lDMF1Um+VEcKpHOcCoNS+2OVy6qi+zPAUk+be4dqKhztJ83V60LOmXjtp6Gzv1XfkYtIFlf/zVYId4UJbAdzqYbhE7Z6q+T0+lxKgcm0Yq2u9ZgJbCEJfAYG42AK0cgH5KUOj6oPy463+tT8XypoKBRcRMw=
+    - GIT_DEPLOY_REPO=https://fab70053b461fb731bee2bfab4dc98eb3b79055a@github.com/wwrpgroup/wwrpgroup.github.io.git

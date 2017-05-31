@@ -10,10 +10,10 @@
     "lint": "npm-run-all --parallel lint:*",
     "start": "phenomic start",
     "build": "phenomic build",
-    "pretest": "npm run lint",
-    "test": "npm run build",
+    "pretest": "yarn run lint",
+    "test": "yarn run build",
     "predeploy": "yarn run build",
-    "deploy": "./scripts/deploy.sh"    
+    "deploy": "./scripts/deploy.sh"
   },
   "phenomic": {
     "CNAME": true
